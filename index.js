@@ -1,126 +1,126 @@
-const fs = require('fs');
-let products = [];
+const fs = require("fs");
 
 class ProductManager {
-    constructor(){
-        this.id = 1;
-        this.path = './products.json'
+  constructor() {
+    this.path = "./products.json";
+    this.id = 0;
+    this.products = [];
+  }
+  async write() {
+		return new Promise (async (resolve, reject) => {
+			await this.ensureProductsFile();
+			await fs.promises.writeFile(this.path, JSON.stringify(this.products, null, 2),"utf-8");
+			resolve();
+		})
+  }
+  async read() {
+		return new Promise (async (resolve, reject) =>{
+			await this.ensureProductsFile();
+			const fileData = await fs.promises.readFile(this.path, 'utf-8');
+			resolve(JSON.parse(fileData))
+		} )
+  }
+	async ensureProductsFile() {
+		return fs.promises.readFile(this.path, "utf-8")
+		.catch(async (err) => {await fs.promises.writeFile(this.path, JSON.stringify([], null, 2), "utf-8");
+		});
+	}
+  async getProduct() {
+    this.products = await this.read();
+  }
+  async addProduct(newProduct) {
+    await this.getProduct();
+    if (
+      !newProduct.title ||
+      !newProduct.description ||
+      !newProduct.thumbnail ||
+      !newProduct.price ||
+      !newProduct.stock ||
+      !newProduct.code
+    ) {
+      console.log("Falta Completar Campos");
+      return;
     }
-
-    getProduct() {
-        products = JSON.parse(read);
-        return products;
+    if (!this.products.some((element) => element.code === newProduct.code)) {
+      let product = { id: this.id + Math.floor(Math.random() * 9999), ...newProduct };
+      this.products.push(product);
+      await this.write();
+			console.log(`El Articulo ${product.title} fue Agregado Correctamente`);
+      this.id = product.id;
+    } else {
+      console.log(`Ya Existe un Articulo con el Codigo: ${newProduct.code}`);
     }
-
-    addProduct(title, description,thumbnail, price, code, stock){
-        products = JSON.parse(read);
-        if (!title || !description || !thumbnail || !price || !stock || !code){
-            console.log("Falta Completar Campos");
-            return
-        }
-        if (!products.some((element) => element.code === code)){
-            let idPruct = { id: this.id + products.length}
-            let product = {title, description, thumbnail, price, stock, code};
-            let newProduct = {...idPruct, ...product} 
-            products.push(newProduct);
-            console.log(`El Articulo ${title} fue Agregado Correctamente`);
-            write();
-        }else{
-            console.log(`Ya Existe un Articulo con el Codigo: ${code}`);
-        }
-    }
-    
-    getProductById(id){
-        products = JSON.parse(read);
-        let product = products.find((element) => element.id === id);
-        if (product){
-            return product
-        }else{
-            console.error(`El Producto de Id: ${id} es inexistente`);
-        }
-    }
-    updateProduct(id, newData, op){
-        products = JSON.parse(read);
-        let product = products.find((element) => element.id === id);
-        let idx = products.indexOf(products.find((element) => element.id === id))
-        if (product){
-            switch(op) {
-                case 1:
-                    product.title = newData;
-                    products.splice(idx, 1, product);
-                    break;
-                case 2:
-                    product.description = newData;
-                    products.splice(idx, 1, product);
-                    break;
-                case 3:
-                    product.thumbnail = newData;
-                    products.splice(idx, 1, product);
-                    break;
-                case 4:
-                    product.price = newData;
-                    products.splice(idx, 1, product);
-                    break;
-                case 5:
-                    product.code = newData;
-                    products.splice(idx, 1, product);
-                    break;
-                case 6:
-                    product.stock = newData;
-                    products.splice(idx, 1, product);
-                    break;
-            }
-        }else{
-            console.error('El Producto Que busca Modificar es inexistente');
-        }
-        console.log('El articulo se a modificado correctamente')
-        write();
-    }
-    deleteProduct(id){
-        products = JSON.parse(read);
-        let idx = products.indexOf(products.find((element) => element.id === id))
-        if (product){
-            products.splice(idx, 1);
-            console.log('El Articulo se Borro Correctamente')
-        }else{
-            console.error('El Producto Que busca Eliminar es inexistente');
-        }
-        write();
-    }
-};
+  }
+  async getProductById(id) {
+			await this.getProduct();
+      let product = this.products.find((element) => element.id === id);
+      if (product) {
+        console.log(product);
+      } else {
+        console.error(`El Producto de Id: ${id} es inexistente`);
+      }
+  }
+  async updateProduct(id, productEdit) {
+			await this.getProduct();
+      let product = this.products.find((element) => element.id === id);
+      let idx = this.products.indexOf(
+        this.products.find((element) => element.id === id)
+      );
+      if (product) {
+        product = {id: id, ...productEdit};
+        this.products.splice(idx, 1, product);
+      } else {
+        console.error("El Producto Que busca Modificar es inexistente");
+      }
+      console.log("El articulo se a modificado correctamente");
+      await this.write();
+  }
+  async deleteProduct(id) {
+			await this.getProduct();
+      let idx = this.products.indexOf(
+        this.products.find((element) => element.id === id)
+      );
+      let product = this.products.find((element) => element.id === id);
+      if (product) {
+        this.products.splice(idx, 1);
+        console.log("El Articulo se Borro Correctamente");
+      } else {
+        console.error("El Producto Que busca Eliminar es inexistente");
+      }
+      await this.write();
+    };
+}
 
 const product = new ProductManager();
 
-const read = fs.readFileSync(product.path, 'utf-8');
-
-const write = async ()=>{
-    try{
-        let res = await fs.promises.writeFile(product.path, JSON.stringify(products, null, 2), 'utf-8' )
-    }catch(error){
-        console.log('No se puede escribir el Archivo', error)
-    }
-}
-
-// 
-
 //Productos Agregados
-//product.addProduct("Justin", "Muñeco Tamaño de Felpa Tamaño Real del cantante Justin Biber, ideas para esas tardes lluviosas donde la existencia se vuelve efiemera","url", 15000, 544, 10);
 
-//Verificaciones De Carga
-// product.addProduct("Salamin", "Refinado Salamin de Tilcara", 1500, 65, 8);
+// const newProduct = {
+//     title: "Justin",
+//     description: "Muñeco Tamaño de Felpa Tamaño Real del cantante Justin Biber, ideas para esas tardes lluviosas donde la existencia se vuelve efiemera",
+//     thumbnail:"url",
+//     price:15000,
+//     stock: 10,
+//     code: 78
+// }
+// product.addProduct(newProduct).then();
 
 //Muestra de Los Productos
-//console.log(product.getProduct());
-
-//Verificacion de Producto Repetido
-//product.addProduct("Tambo", "Refinado Queso de Tilcara","url", 200, 65, 9);
+//product.getProduct().then(async (res) => {console.log(product.products)});
 
 //Busqueda por ID
-//console.log(product.getProductById(4))
+//product.getProductById(329)
 
-//Uodate opciones switch: 1 - Titulo, 2 - Descripcion, 3 - Url, 4 - Precio, 5 - Code, 6 - Stock
-//Parametros: Primer Parametro = ID, Segundo Parametro = Nuevo Valor, Tercer Parametro = Valor a Modificar (op Switch)
-//product.updateProduct(1,'Muñeco',1)
+//Update
+//const productEdit = {
+//     title: "actualizado",
+//     description: "Muñeco Tamaño de Felpa Tamaño Real del cantante Justin Biber, ideas para esas tardes lluviosas donde la existencia se vuelve efiemera",
+//     thumbnail:"url",
+//     price:15000,
+//     stock: 10,
+//     code: 300
+// }
+// product.updateProduct(329, productEdit)
 
 //Deleate por ID
-//product.deleteProduct(1)
+//product.deleteProduct(6959)
