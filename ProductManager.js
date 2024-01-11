@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 
 class ProductManager {
   constructor() {
@@ -56,6 +56,7 @@ class ProductManager {
       let product = this.products.find((element) => element.id === id);
       if (product) {
         console.log(product);
+        return product
       } else {
         console.error(`El Producto de Id: ${id} es inexistente`);
       }
@@ -91,7 +92,9 @@ class ProductManager {
     };
 }
 
-const product = new ProductManager();
+module.exports = ProductManager;
+
+//const product = new ProductManager();
 
 //Productos Agregados
 
@@ -101,7 +104,7 @@ const product = new ProductManager();
 //     thumbnail:"url",
 //     price:15000,
 //     stock: 10,
-//     code: 78
+//     code: 84
 // }
 // product.addProduct(newProduct).then();
 
@@ -109,7 +112,7 @@ const product = new ProductManager();
 //product.getProduct().then(async (res) => {console.log(product.products)});
 
 //Busqueda por ID
-//product.getProductById(329)
+//product.getProductById(4353)
 
 //Update
 //const productEdit = {
