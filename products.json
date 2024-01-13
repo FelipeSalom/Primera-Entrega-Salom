@@ -1,6 +1,6 @@
 [
   {
-    "id": 2033,
+    "id": 0,
     "title": "Disco Duro WD:Blue 6tb",
     "description": "Disco Rigido Mecanico con espacio de almacenamiento de 6tb",
     "thumbnail": "url",
@@ -9,7 +9,7 @@
     "code": 10
   },
   {
-    "id": 3649,
+    "id": 1,
     "title": "Memomira Ram Hyperx Fury 32gb",
     "description": "Pack de memoria ram de 3200mhz, 4x8gb ",
     "thumbnail": "url",
@@ -18,7 +18,7 @@
     "code": 20
   },
   {
-    "id": 3305,
+    "id": 2,
     "title": "Disipador Cooler, CoolerMaster MA610p",
     "description": "Disipador para Procesadores de AMD4 e LGA 11501, de doble ventilador con rgb",
     "thumbnail": "url",
@@ -27,7 +27,7 @@
     "code": 30
   },
   {
-    "id": 1175,
+    "id": 3,
     "title": "Fan Cooler CoolerMaster MF120 Halo",
     "description": "Pack de 3 Ventiladores de 120mm, velocidad de 1400rpm con rgb",
     "thumbnail": "url",
@@ -36,7 +36,7 @@
     "code": 40
   },
   {
-    "id": 323,
+    "id": 4,
     "title": "Placa VGA Asus Rog gtx 1070ti",
     "description": "Placa de Video con 8gb de ram ddr5, PCI-EXPRESS 3.0",
     "thumbnail": "url",
@@ -45,7 +45,7 @@
     "code": 50
   },
   {
-    "id": 3587,
+    "id": 5,
     "title": "Fuent Asus Thor 850wts",
     "description": "Fuente de grado 80plus Platino, modular",
     "thumbnail": "url",
@@ -54,7 +54,7 @@
     "code": 60
   },
   {
-    "id": 7785,
+    "id": 6,
     "title": "Mother Rog AMD4 Crosshair VII",
     "description": "Mother con Chipser x397 para procesadores Amd Ryzen",
     "thumbnail": "url",
@@ -63,7 +63,7 @@
     "code": 70
   },
   {
-    "id": 2562,
+    "id": 7,
     "title": "Teclado Redragon Brahama",
     "description": "Teclado Mecanico Con Switch Blue",
     "thumbnail": "url",
@@ -72,7 +72,7 @@
     "code": 80
   },
   {
-    "id": 3285,
+    "id": 8,
     "title": "Mouse Redragon Impact",
     "description": "Mouse optico con 12 teclas macro, regulador de dpi",
     "thumbnail": "url",
@@ -81,7 +81,7 @@
     "code": 90
   },
   {
-    "id": 9563,
+    "id": 9,
     "title": "Gabinete Phanteks eclipse p400",
     "description": "Gabinete de 210x510x420, vidrio templado frontal",
     "thumbnail": "url",

@@ -6,6 +6,23 @@ class ProductManager {
     this.id = 0;
     this.products = [];
   }
+  async idCreator(){
+    await this.getProduct();
+    const arrId = [];
+    this.products.forEach((element) => {
+      arrId.push(element.id)
+      })
+    arrId.sort((a, b) => {return a - b})
+    for (let i = 0; i < arrId.length; i++ ){
+      if (arrId[i] != i){
+        this.id = i;
+        return
+      }
+    }
+    if (this.id === 0){
+      this.id = arrId.length;
+    }
+  }
   async write() {
 		return new Promise (async (resolve, reject) => {
 			await this.ensureProductsFile();
@@ -30,6 +47,7 @@ class ProductManager {
   }
   async addProduct(newProduct) {
     await this.getProduct();
+    await this.idCreator();
     if (
       !newProduct.title ||
       !newProduct.description ||
@@ -42,7 +60,7 @@ class ProductManager {
       return;
     }
     if (!this.products.some((element) => element.code === newProduct.code)) {
-      let product = { id: this.id + Math.floor(Math.random() * 9999), ...newProduct };
+      let product = { id: this.id, ...newProduct };
       this.products.push(product);
       await this.write();
 			console.log(`El Articulo ${product.title} fue Agregado Correctamente`);
@@ -96,19 +114,19 @@ class ProductManager {
 
 module.exports = ProductManager;
 
-const product = new ProductManager();
+// const product = new ProductManager();
 
 //Productos Agregados
 
-const newProduct = {
-    title: "Gabinete Phanteks eclipse p400",
-    description: "Gabinete de 210x510x420, vidrio templado frontal",
-    thumbnail:"url",
-    price: 365000,
-    stock: 5,
-    code: 100
-}
-product.addProduct(newProduct).then();
+// const newProduct = {
+//   title: "Gabinete Phanteks eclipse p400",
+//   description: "Gabinete de 210x510x420, vidrio templado frontal",
+//   thumbnail: "url",
+//   price: 365000,
+//   stock: 5,
+//   code: 100
+// }
+// product.addProduct(newProduct).then();
 
 //Muestra de Los Productos
 //product.getProduct().then(async (res) => {console.log(product.products)});
@@ -128,4 +146,4 @@ product.addProduct(newProduct).then();
 // product.updateProduct(329, productEdit)
 
 //Deleate por ID
-//product.deleteProduct(6959)
+//product.deleteProduct(1)
