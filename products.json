@@ -1,29 +1,92 @@
 [
   {
-    "id": 4353,
-    "title": "Justin",
-    "description": "Muñeco Tamaño de Felpa Tamaño Real del cantante Justin Biber, ideas para esas tardes lluviosas donde la existencia se vuelve efiemera",
+    "id": 2033,
+    "title": "Disco Duro WD:Blue 6tb",
+    "description": "Disco Rigido Mecanico con espacio de almacenamiento de 6tb",
     "thumbnail": "url",
-    "price": 15000,
+    "price": 150000,
     "stock": 10,
-    "code": 12
+    "code": 10
   },
   {
-    "id": 1336,
-    "title": "Justin",
-    "description": "Muñeco Tamaño de Felpa Tamaño Real del cantante Justin Biber, ideas para esas tardes lluviosas donde la existencia se vuelve efiemera",
+    "id": 3649,
+    "title": "Memomira Ram Hyperx Fury 32gb",
+    "description": "Pack de memoria ram de 3200mhz, 4x8gb ",
     "thumbnail": "url",
-    "price": 15000,
-    "stock": 10,
-    "code": 15
+    "price": 175000,
+    "stock": 8,
+    "code": 20
   },
   {
-    "id": 6429,
-    "title": "Justin",
-    "description": "Muñeco Tamaño de Felpa Tamaño Real del cantante Justin Biber, ideas para esas tardes lluviosas donde la existencia se vuelve efiemera",
+    "id": 3305,
+    "title": "Disipador Cooler, CoolerMaster MA610p",
+    "description": "Disipador para Procesadores de AMD4 e LGA 11501, de doble ventilador con rgb",
     "thumbnail": "url",
-    "price": 15000,
-    "stock": 10,
-    "code": 84
+    "price": 275000,
+    "stock": 5,
+    "code": 30
+  },
+  {
+    "id": 1175,
+    "title": "Fan Cooler CoolerMaster MF120 Halo",
+    "description": "Pack de 3 Ventiladores de 120mm, velocidad de 1400rpm con rgb",
+    "thumbnail": "url",
+    "price": 270000,
+    "stock": 7,
+    "code": 40
+  },
+  {
+    "id": 323,
+    "title": "Placa VGA Asus Rog gtx 1070ti",
+    "description": "Placa de Video con 8gb de ram ddr5, PCI-EXPRESS 3.0",
+    "thumbnail": "url",
+    "price": 90000,
+    "stock": 6,
+    "code": 50
+  },
+  {
+    "id": 3587,
+    "title": "Fuent Asus Thor 850wts",
+    "description": "Fuente de grado 80plus Platino, modular",
+    "thumbnail": "url",
+    "price": 290000,
+    "stock": 3,
+    "code": 60
+  },
+  {
+    "id": 7785,
+    "title": "Mother Rog AMD4 Crosshair VII",
+    "description": "Mother con Chipser x397 para procesadores Amd Ryzen",
+    "thumbnail": "url",
+    "price": 100000,
+    "stock": 1,
+    "code": 70
+  },
+  {
+    "id": 2562,
+    "title": "Teclado Redragon Brahama",
+    "description": "Teclado Mecanico Con Switch Blue",
+    "thumbnail": "url",
+    "price": 75000,
+    "stock": 15,
+    "code": 80
+  },
+  {
+    "id": 3285,
+    "title": "Mouse Redragon Impact",
+    "description": "Mouse optico con 12 teclas macro, regulador de dpi",
+    "thumbnail": "url",
+    "price": 65000,
+    "stock": 9,
+    "code": 90
+  },
+  {
+    "id": 9563,
+    "title": "Gabinete Phanteks eclipse p400",
+    "description": "Gabinete de 210x510x420, vidrio templado frontal",
+    "thumbnail": "url",
+    "price": 365000,
+    "stock": 5,
+    "code": 100
   }
 ]

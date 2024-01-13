@@ -14,15 +14,14 @@ app.get("/", (req, res) => {
   res.send("<h1>Tienda Oficial de Pepito</h1>");
 });
 
-// app.get('/products', async (req, res)=>{
-// 	await product.getProduct().then()
-//   res.send(product.products)
-// })
-
 app.get('/products/:id', async (req, res)=>{
-  let id = JSON.parse(req.params.id);
-  let pr = await product.getProductById(id).then();
-  res.send(pr);
+		let id = JSON.parse(req.params.id);
+		let pr = await product.getProductById(id).then();
+		if (pr !== null) {
+			res.send(pr);
+		}else{
+			res.send('NOT FOUND')
+		}
 })
 
 app.get('/products', async (req, res)=>{

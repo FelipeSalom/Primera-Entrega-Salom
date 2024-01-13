@@ -58,7 +58,9 @@ class ProductManager {
         console.log(product);
         return product
       } else {
-        console.error(`El Producto de Id: ${id} es inexistente`);
+        console.log(`El Producto de ID: ${id} es Inexistente`)
+        product = null;
+        return product;
       }
   }
   async updateProduct(id, productEdit) {
@@ -94,19 +96,19 @@ class ProductManager {
 
 module.exports = ProductManager;
 
-//const product = new ProductManager();
+const product = new ProductManager();
 
 //Productos Agregados
 
-// const newProduct = {
-//     title: "Justin",
-//     description: "Muñeco Tamaño de Felpa Tamaño Real del cantante Justin Biber, ideas para esas tardes lluviosas donde la existencia se vuelve efiemera",
-//     thumbnail:"url",
-//     price:15000,
-//     stock: 10,
-//     code: 84
-// }
-// product.addProduct(newProduct).then();
+const newProduct = {
+    title: "Gabinete Phanteks eclipse p400",
+    description: "Gabinete de 210x510x420, vidrio templado frontal",
+    thumbnail:"url",
+    price: 365000,
+    stock: 5,
+    code: 100
+}
+product.addProduct(newProduct).then();
 
 //Muestra de Los Productos
 //product.getProduct().then(async (res) => {console.log(product.products)});
