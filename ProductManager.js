@@ -111,15 +111,15 @@ const product = new ProductManager();
 
 //Productos Agregados
 
-const newProduct = {
-  title: "Gabinete Phanteks eclipse p400",
-  description: "Gabinete de 210x510x420, vidrio templado frontal",
-  thumbnail: "url",
-  price: 365000,
-  stock: 5,
-  code: 200
-}
-product.addProduct(newProduct).then();
+// const newProduct = {
+//   title: "Gabinete Phanteks eclipse p400",
+//   description: "Gabinete de 210x510x420, vidrio templado frontal",
+//   thumbnail: "url",
+//   price: 365000,
+//   stock: 5,
+//   code: 200
+// }
+// product.addProduct(newProduct).then();
 
 //Muestra de Los Productos
 //product.getProduct().then(async (res) => {console.log(product.products)});
