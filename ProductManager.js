@@ -8,19 +8,12 @@ class ProductManager {
   }
   async idCreator(){
     await this.getProduct();
-    const arrId = [];
-    this.products.forEach((element) => {
-      arrId.push(element.id)
-      })
-    arrId.sort((a, b) => {return a - b})
-    for (let i = 0; i < arrId.length; i++ ){
-      if (arrId[i] != i){
-        this.id = i;
-        return
-      }
-    }
-    if (this.id === 0){
-      this.id = arrId.length;
+    this.products.sort((a, b) => {return a.id - b.id})
+    const id = this.products.find((product, index) => product.id !== index);
+    if (id !== undefined) {
+      this.id = this.products.indexOf(id);
+    } else {
+      this.id = this.products.length;
     }
   }
   async write() {
@@ -114,19 +107,19 @@ class ProductManager {
 
 module.exports = ProductManager;
 
-// const product = new ProductManager();
+const product = new ProductManager();
 
 //Productos Agregados
 
-// const newProduct = {
-//   title: "Gabinete Phanteks eclipse p400",
-//   description: "Gabinete de 210x510x420, vidrio templado frontal",
-//   thumbnail: "url",
-//   price: 365000,
-//   stock: 5,
-//   code: 100
-// }
-// product.addProduct(newProduct).then();
+const newProduct = {
+  title: "Gabinete Phanteks eclipse p400",
+  description: "Gabinete de 210x510x420, vidrio templado frontal",
+  thumbnail: "url",
+  price: 365000,
+  stock: 5,
+  code: 200
+}
+product.addProduct(newProduct).then();
 
 //Muestra de Los Productos
 //product.getProduct().then(async (res) => {console.log(product.products)});
