@@ -1,6 +1,6 @@
-const fs = require('fs');
+import { promises as fs } from 'fs';
 
-class ProductManager {
+export class ProductManager {
   constructor() {
     this.path = "./products.json";
     this.id = 0;
@@ -19,25 +19,26 @@ class ProductManager {
   async write() {
 		return new Promise (async (resolve, reject) => {
 			await this.ensureProductsFile();
-			await fs.promises.writeFile(this.path, JSON.stringify(this.products, null, 2),"utf-8");
+			await fs.writeFile(this.path, JSON.stringify(this.products, null, 2),"utf-8");
 			resolve();
 		})
   }
   async read() {
 		return new Promise (async (resolve, reject) =>{
 			await this.ensureProductsFile();
-			const fileData = await fs.promises.readFile(this.path, 'utf-8');
+			const fileData = await fs.readFile(this.path, 'utf-8');
 			resolve(JSON.parse(fileData))
 		} )
   }
 	async ensureProductsFile() {
-		return fs.promises.readFile(this.path, "utf-8")
-		.catch(async (err) => {await fs.promises.writeFile(this.path, JSON.stringify([], null, 2), "utf-8");
+		return fs.readFile(this.path, "utf-8")
+		.catch(async (err) => {await fs.writeFile(this.path, JSON.stringify([], null, 2), "utf-8");
 		});
 	}
   async getProduct() {
     this.products = await this.read();
   }
+  
   async addProduct(newProduct) {
     await this.getProduct();
     await this.idCreator();
@@ -47,19 +48,20 @@ class ProductManager {
       !newProduct.thumbnail ||
       !newProduct.price ||
       !newProduct.stock ||
+      !newProduct.category||
       !newProduct.code
     ) {
       console.log("Falta Completar Campos");
       return;
     }
     if (!this.products.some((element) => element.code === newProduct.code)) {
-      let product = { id: this.id, ...newProduct };
+      let product = { id: this.id, status: true, ...newProduct };
       this.products.push(product);
       await this.write();
-			console.log(`El Articulo ${product.title} fue Agregado Correctamente`);
       this.id = product.id;
+      return true
     } else {
-      console.log(`Ya Existe un Articulo con el Codigo: ${newProduct.code}`);
+      return false
     }
   }
   async getProductById(id) {
@@ -80,11 +82,18 @@ class ProductManager {
       let idx = this.products.indexOf(
         this.products.find((element) => element.id === id)
       );
-      if (product) {
-        product = {id: id, ...productEdit};
+      if (product &&       
+        !newProduct.title ||
+        !newProduct.description ||
+        !newProduct.thumbnail ||
+        !newProduct.price ||
+        !newProduct.stock ||
+        !newProduct.category||
+        !newProduct.code) {
+        product = {id: id, status: true, ...productEdit};
         this.products.splice(idx, 1, product);
       } else {
-        console.error("El Producto Que busca Modificar es inexistente");
+        console.error("El Producto Que busca Modificar es inexistente y/o Falta completar algun campo");
       }
       console.log("El articulo se a modificado correctamente");
       await this.write();
@@ -105,38 +114,4 @@ class ProductManager {
     };
 }
 
-module.exports = ProductManager;
 
-const product = new ProductManager();
-
-//Productos Agregados
-
-// const newProduct = {
-//   title: "Gabinete Phanteks eclipse p400",
-//   description: "Gabinete de 210x510x420, vidrio templado frontal",
-//   thumbnail: "url",
-//   price: 365000,
-//   stock: 5,
-//   code: 200
-// }
-// product.addProduct(newProduct).then();
-
-//Muestra de Los Productos
-//product.getProduct().then(async (res) => {console.log(product.products)});
-
-//Busqueda por ID
-//product.getProductById(4353)
-
-//Update
-//const productEdit = {
-//     title: "actualizado",
-//     description: "Muñeco Tamaño de Felpa Tamaño Real del cantante Justin Biber, ideas para esas tardes lluviosas donde la existencia se vuelve efiemera",
-//     thumbnail:"url",
-//     price:15000,
-//     stock: 10,
-//     code: 300
-// }
-// product.updateProduct(329, productEdit)
-
-//Deleate por ID
-//product.deleteProduct(1)

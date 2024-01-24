@@ -1,80 +1,90 @@
  {
-    title: "Disco Duro WD:Blue 6tb",
-    description: "Disco Rigido Mecanico con espacio de almacenamiento de 6tb",
-    thumbnail: "url",
-    price: 150000,
-    stock: 10,
-    code: 10
+    "title": "Disco Duro WD:Blue 6tb",
+    "description": "Disco Rigido Mecanico con espacio de almacenamiento de 6tb",
+    "thumbnail": [],
+    "price": 150000,
+    "stock": 10,
+    "category": "Componentes de Computacion",
+    "code": 10
   }
   {
-    title: "Memomira Ram Hyperx Fury 32gb",
-    description: "Pack de memoria ram de 3200mhz, 4x8gb ",
-    thumbnail: "url",
-    price: 175000,
-    stock: 8,
-    code: 20
+    "title": "Memomira Ram Hyperx Fury 32gb",
+    "description": "Pack de memoria ram de 3200mhz, 4x8gb ",
+    "thumbnail": [],
+    "price": 175000,
+    "stock": 8,
+    "category": "Componentes de Computacion",
+    "code": 20
   }
   {
-    title: "Disipador Cooler, CoolerMaster MA610p",
-    description: "Disipador para Procesadores de AMD4 e LGA 11501, de doble ventilador con rgb",
-    thumbnail: "url",
-    price: 275000,
-    stock: 5,
-    code: 30
+    "title": "Disipador Cooler, CoolerMaster MA610p",
+    "description": "Disipador para Procesadores de AMD4 e LGA 11501, de doble ventilador con rgb",
+    "thumbnail": [],
+    "price": 275000,
+    "stock": 5,
+    "category": "Componentes de Computacion",
+    "code": 30
   }
   {
-    title: "Fan Cooler CoolerMaster MF120 Halo",
-    description: "Pack de 3 Ventiladores de 120mm, velocidad de 1400rpm con rgb",
-    thumbnail: "url",
-    price: 270000,
-    stock: 7,
-    code: 40
+    "title": "Fan Cooler CoolerMaster MF120 Halo",
+    "description": "Pack de 3 Ventiladores de 120mm, velocidad de 1400rpm con rgb",
+    "thumbnail": [],
+    "price": 270000,
+    "stock": 7,
+    "category": "Componentes de Computacion",
+    "code": 40
   }
   {
-    title: "Placa VGA Asus Rog gtx 1070ti",
-    description: "Placa de Video con 8gb de ram ddr5, PCI-EXPRESS 3.0",
-    thumbnail: "url",
-    price: 90000,
-    stock: 6,
-    code: 50
+    "title": "Placa VGA Asus Rog gtx 1070ti",
+    "description": "Placa de Video con 8gb de ram ddr5, PCI-EXPRESS 3.0",
+    "thumbnail": [],
+    "price": 90000,
+    "stock": 6,
+    "category": "Componentes de Computacion",
+    "code": 50
   }
   {
-    title: "Fuent Asus Thor 850wts",
-    description: "Fuente de grado 80plus Platino, modular",
-    thumbnail: "url",
-    price: 290000,
-    stock: 3,
-    code: 60
+    "title": "Fuent Asus Thor 850wts",
+    "description": "Fuente de grado 80plus Platino, modular",
+    "thumbnail": [],
+    "price": 290000,
+    "stock": 3,
+    "category": "Componentes de Computacion",
+    "code": 60
   }
   {
-    title: "Mother Rog AMD4 Crosshair VII",
-    description: "Mother con Chipser x397 para procesadores Amd Ryzen",
-    thumbnail: "url",
-    price: 100000,
-    stock: 1,
-    code: 70
+    "title": "Mother Rog AMD4 Crosshair VII",
+    "description": "Mother con Chipser x397 para procesadores Amd Ryzen",
+    "thumbnail": [],
+    "price": 100000,
+    "stock": 1,
+    "category": "Componentes de Computacion",
+    "code": 70
   }
   {
-    title: "Teclado Redragon Brahama",
-    description: "Teclado Mecanico Con Switch Blue",
-    thumbnail: "url",
-    price: 75000,
-    stock: 15,
-    code: 80
+    "title": "Teclado Redragon Brahama",
+    "description": "Teclado Mecanico Con Switch Blue",
+    "thumbnail": [],
+    "price": 75000,
+    "stock": 15,
+    "category": "Componentes de Computacion",
+    "code": 80
   }
   {
-    title: "Mouse Redragon Impact",
-    description: "Mouse optico con 12 teclas macro, regulador de dpi",
-    thumbnail: "url",
-    price: 65000,
-    stock: 9,
-    code: 90
+    "title": "Mouse Redragon Impact",
+    "description": "Mouse optico con 12 teclas macro, regulador de dpi",
+    "thumbnail": [],
+    "price": 65000,
+    "stock": 9,
+    "category": "Componentes de Computacion",
+    "code": 90
   }
   {
-    title: "Gabinete Phanteks eclipse p400",
-    description: "Gabinete de 210x510x420, vidrio templado frontal",
-    thumbnail: "url",
-    price: 365000,
-    stock: 5,
-    code: 100
+    "title": "Gabinete Phanteks eclipse p400",
+    "description": "Gabinete de 210x510x420, vidrio templado frontal",
+    "thumbnail": [],
+    "price": 365000,
+    "stock": 5,
+    "category": "Componentes de Computacion",
+    "code": 100
   }
